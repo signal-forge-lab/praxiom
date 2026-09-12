@@ -61,3 +61,12 @@ evidence/candidate input, never inherited live authority. Imported facts must
 retain provenance, pass hygiene/conflict handling, and receive current Praxiom
 device corroboration before they can contribute to Phase C live promotion.
 
+## Public Git safety
+
+All branches in this public repository are public-safe. Branches represent
+development state, not confidentiality boundaries. Before any commit or push,
+follow `docs/GIT_WORKFLOW.md`; keep secrets, workstation-local configuration,
+private paths/logs, and internal-only implementation outside this repository.
+Use a separate private repository when implementation itself must remain
+private.
+

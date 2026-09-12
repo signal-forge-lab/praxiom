@@ -108,6 +108,15 @@ observationごとに上書きします。画像履歴やVisual Flight Recorder�
 Praxiom Runtime、決定論的テスト、ローカルread-only Monitorの必須要素ではないため、
 公開snapshotから除外しています。
 
+## Git運用
+
+公開開発では、レビュー済みの安定した公開状態を`main`、公開されても問題ない
+統合作業を`develop`、個別変更を短命な`feature/*`ブランチで管理します。
+ブランチを機密性の境界には使用しません。SecretやPC固有設定はGitの外で管理し、
+実装自体を非公開にする必要がある場合は別のPrivate Repositoryを使用します。
+
+[Git運用 (English)](docs/GIT_WORKFLOW.md) / [Git運用 (日本語)](docs/GIT_WORKFLOW.ja.md)
+
 ## License
 
 GPL-3.0-or-later。`LICENSE` を参照してください。

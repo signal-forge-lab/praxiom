@@ -115,6 +115,18 @@ development setup are also excluded from the public snapshot. They are not
 required by the Praxiom Runtime, deterministic test suite, or local read-only
 Monitor.
 
+## Git workflow
+
+Public development uses `main` for the reviewed stable public state,
+`develop` for integration work that is already safe to disclose, and
+short-lived `feature/*` branches for individual changes. Confidentiality is
+never implemented with branches: secrets and workstation-local configuration
+stay outside Git, and internal-only implementation belongs in a separate
+private repository.
+
+See [Git workflow (English)](docs/GIT_WORKFLOW.md) or
+[Git workflow (日本語)](docs/GIT_WORKFLOW.ja.md).
+
 ## License
 
 GPL-3.0-or-later. See `LICENSE`.
