@@ -10,7 +10,6 @@ __pycache__/
 # Local credentials / signing material
 .env
 .env.*
-!.env.example
 *.pem
 *.key
 *.p12
