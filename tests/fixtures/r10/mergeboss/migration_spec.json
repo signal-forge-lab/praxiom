@@ -1,0 +1,130 @@
+{
+  "domain": "mergeboss",
+  "fixture_type": "migration_provenance_specification",
+  "provenance": "synthesized-contract-fixture-no-device-capture",
+  "authority_refs": [
+    "docs/evidence/20260909_r10-domain-provenance-repair.md"
+  ],
+  "decisions": [
+    {
+      "legacy_name": "launch",
+      "behavior_id": "mergeboss:launch",
+      "decision": "migrated",
+      "reason": "Entrypoint for game launch and foreground setup via native runtime",
+      "risk": "low",
+      "reversibility": "reversible",
+      "human_gate": false,
+      "ops": ["launch_app"]
+    },
+    {
+      "legacy_name": "open_board",
+      "behavior_id": "mergeboss:open-level-board",
+      "decision": "migrated",
+      "reason": "Navigation to board screen to enable tile observation and manipulation",
+      "risk": "low",
+      "reversibility": "reversible",
+      "human_gate": false,
+      "ops": ["tap_point", "tap_element"]
+    },
+    {
+      "legacy_name": "tap_generator",
+      "behavior_id": "mergeboss:spawn-generator-item",
+      "decision": "migrated",
+      "reason": "Core item generation action consuming renewable energy",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "ops": ["tap_point", "tap_element"]
+    },
+    {
+      "legacy_name": "merge_items",
+      "behavior_id": "mergeboss:merge-board-items",
+      "decision": "migrated",
+      "reason": "Primary merge puzzle progression mechanic upgrading tile tier",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "ops": ["drag"]
+    },
+    {
+      "legacy_name": "complete_order",
+      "behavior_id": "mergeboss:deliver-customer-order",
+      "decision": "migrated",
+      "reason": "Order fulfillment to earn coins and queue new customer requests",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "ops": ["tap_point", "tap_element"]
+    },
+    {
+      "legacy_name": "buy_generator_part",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "No retained per-behavior evidence establishes this purchase contract",
+      "risk": "high",
+      "reversibility": "compensable",
+      "human_gate": true,
+      "ops": ["tap_point", "tap_element"]
+    },
+    {
+      "legacy_name": "speedup_cooldown",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "No retained per-behavior evidence establishes premium cooldown-spend semantics",
+      "risk": "high",
+      "reversibility": "irreversible",
+      "human_gate": true,
+      "ops": ["tap_point", "tap_element"]
+    },
+    {
+      "legacy_name": "direct_memory_hack",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Violates greenfield native runtime boundary and execution model",
+      "risk": "prohibited",
+      "reversibility": "irreversible",
+      "human_gate": true,
+      "ops": []
+    },
+    {
+      "legacy_name": "cloud_sync_override",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Modifying external account/cloud state is prohibited by real-workflow safety envelope",
+      "risk": "prohibited",
+      "reversibility": "irreversible",
+      "human_gate": true,
+      "ops": []
+    },
+    {
+      "legacy_name": "auto_purchase_real_money",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Real-money payment/purchase is strictly prohibited by safety envelope",
+      "risk": "prohibited",
+      "reversibility": "irreversible",
+      "human_gate": true,
+      "ops": []
+    },
+    {
+      "legacy_name": "batch_board_wipe",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Unsafe destructive deletion of user inventory prohibited",
+      "risk": "prohibited",
+      "reversibility": "irreversible",
+      "human_gate": true,
+      "ops": []
+    },
+    {
+      "legacy_name": "cross_game_inventory_exchange",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "Requires cross-domain persistent storage outside current scope",
+      "risk": "high",
+      "reversibility": "compensable",
+      "human_gate": true,
+      "ops": []
+    }
+  ]
+}

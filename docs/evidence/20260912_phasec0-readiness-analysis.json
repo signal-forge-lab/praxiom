@@ -1,0 +1,151 @@
+{
+  "adaptive_surface": "observation-only",
+  "c0_completion": {
+    "phase_c_status": "READY_FOR_LIMITED_CANARY",
+    "ready": true
+  },
+  "c0_current_device": {
+    "direct_canary": {
+      "actions": 4,
+      "available": true,
+      "effect_failure_classes": 0,
+      "error_code_classes": 0,
+      "shadow_decisions": 4
+    },
+    "home_latency_sample": {
+      "actions": 6,
+      "available": true,
+      "failure_effect_classes": 0,
+      "failure_error_code_classes": 0,
+      "median_ms": 117.70619999151677,
+      "p90_ms": 159.1201999981422,
+      "run_id": "phasec0-home-latency-sample-20260912"
+    },
+    "home_operational_preflight": {
+      "available": true,
+      "failure_effect_classes": 0,
+      "failure_error_code_classes": 0,
+      "fresh_observe_events": 2,
+      "home_attempt_success_none": true,
+      "home_execute_events": 1,
+      "home_replayed": false,
+      "ready": true,
+      "run_id": "phasec0-home-preflight-final-20260912",
+      "terminal_status": "ok"
+    },
+    "pre_mutation_observe_failures": 1,
+    "pre_mutation_startup_stalls": 9
+  },
+  "candidate_operation_class": "system:return-home",
+  "decision_scope": "c0-closure-evidence-with-retained-operational-preflight",
+  "experience_store": {
+    "by_skill": {
+      "gogomatch:launch-game": {
+        "succeeded|NONE": 6
+      },
+      "mergeboss:launch": {
+        "failed|PARTIAL": 2,
+        "succeeded|NONE": 9
+      },
+      "system:return-home": {
+        "succeeded|NONE": 9
+      }
+    },
+    "total": 26
+  },
+  "fallback": {
+    "mode": "r7-safe-baseline",
+    "optimization": "disabled",
+    "proven": true,
+    "reobserve": true
+  },
+  "home_latency": {
+    "budget_rule": "550ms retained R4 floor; current Wi-Fi class p90 must also fit",
+    "canary_budget_ms": 550,
+    "current_wifi_p90_ms": 159.1201999981422,
+    "observed_max_ms": 502,
+    "policy_observed_p90_ms": 502,
+    "retained_r4_p90_ms": 502
+  },
+  "operational_preflight_evidence": {
+    "decision": {
+      "allowed_surface": "observation-only",
+      "operation_class": "system:return-home",
+      "ready": true,
+      "reasons": [],
+      "sequence_live_allowed": false
+    },
+    "mode": "retained-successful-run-not-live-snapshot"
+  },
+  "phase_c_start_requirement": "re-evaluate CanaryEnvironment from the live Runtime immediately before activation",
+  "promotion_decision": {
+    "allowed_surface": "observation-only",
+    "operation_class": "system:return-home",
+    "ready": true,
+    "reasons": [],
+    "sequence_live_allowed": false
+  },
+  "promotion_evidence": {
+    "causal_validator_proven": true,
+    "current_device_success_none": 4,
+    "fallback_proven": true,
+    "human_gate": false,
+    "observed_execute_p90_ms": 502,
+    "observed_recovery_rate": 1.0,
+    "operation_class": "system:return-home",
+    "partial_count": 0,
+    "replay_count": 0,
+    "reversibility": "reversible",
+    "risk": "low",
+    "shadow_evaluations": 4,
+    "shadow_stable": true,
+    "teaching_conflicts": 0,
+    "unknown_count": 0
+  },
+  "promotion_policy": {
+    "allow_human_gate": false,
+    "allowed_surface": "observation-only",
+    "max_execute_p90_ms": 550,
+    "max_partial": 0,
+    "max_replay": 0,
+    "max_teaching_conflicts": 0,
+    "max_unknown": 0,
+    "min_current_device_success_none": 4,
+    "min_recovery_rate": null,
+    "min_shadow_evaluations": 4,
+    "operation_class": "system:return-home",
+    "require_causal_validator": true,
+    "require_fallback_proof": true,
+    "required_reversibility": "reversible",
+    "required_risk": "low",
+    "sequence_live_allowed": false
+  },
+  "retained_real_device": {
+    "home_structural_postcondition": true,
+    "r4_action_counts": {
+      "drag": 1,
+      "home": 4,
+      "launch_app": 3,
+      "swipe": 2,
+      "tap_element": 2,
+      "tap_point": 1,
+      "type_text": 1
+    },
+    "r4_steps_passed": 29,
+    "r4_steps_total": 29,
+    "r6_r7_steps_passed": 10,
+    "r6_r7_steps_total": 10,
+    "zero_blind_replay": true
+  },
+  "schema_version": 1,
+  "sequence_live": false,
+  "shadow": {
+    "action_reduction": 0,
+    "batch_size_one": 4,
+    "cheap_validate": 4,
+    "evaluations": 4,
+    "live_applied": 0,
+    "mode": "retained-evidence-shadow-replay",
+    "stable": true
+  }
+}

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest-tmp/
+
+# Virtual environments
+.venv/
+
+# Local credentials / signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.mobileprovision
+
+# Packaging artifacts
+*.egg-info/
+build/
+dist/
+
+# Local execution/test scratch
+.tmp-*/
+.bt-*/
+pytest-of-*/

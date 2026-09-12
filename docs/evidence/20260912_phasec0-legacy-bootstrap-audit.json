@@ -1,0 +1,44 @@
+{
+  "candidate_eligible_records": 137,
+  "control_character_records": 0,
+  "duplicate_key_count": 1,
+  "duplicate_key_hashes": [
+    "c7070a1b879aa5b1"
+  ],
+  "duplicate_record_count": 2,
+  "evidence_classes": {
+    "D": 67,
+    "U": 64
+  },
+  "format_markers": 1,
+  "keyed_records": 131,
+  "malformed_records": 0,
+  "parsed_records": 138,
+  "record_classes": {
+    "device_evidence": 67,
+    "format_marker": 1,
+    "human_teaching": 3,
+    "implementation_learning": 1,
+    "operating_policy": 1,
+    "unclassified": 1,
+    "user_evidence_unresolved": 64
+  },
+  "replacement_character_records": 0,
+  "review_required_records": 70,
+  "schema_version": 1,
+  "source_sha256": "950cc464dc0ca87a04ea045a3387996840db56ec444c71d45d34f394f9c8d947",
+  "status_values": {
+    "candidate": 15,
+    "candidate-defect": 8,
+    "candidate-validated": 1,
+    "none": 98,
+    "promoted": 16
+  },
+  "top_level_kinds": {
+    "human_teaching": 3,
+    "implementation_learning": 1,
+    "observation": 1,
+    "operating_policy": 1
+  },
+  "total_lines": 138
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#111418">
+  <title>Praxiom Monitor</title>
+  <link rel="icon" type="image/png" sizes="256x256" href="/praxiom-icon.png?v=7fbc4b69">
+  <link rel="apple-touch-icon" href="/praxiom-icon.png?v=7fbc4b69">
+  <link rel="stylesheet" href="/monitor.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+        <div class="brand">
+          <img class="brand-mark" src="/praxiom-icon.png?v=7fbc4b69" alt="" aria-hidden="true">
+          <div><h1>Praxiom Monitor</h1><small>PASSIVE DEVICE · HUMAN CHANNEL</small></div>
+        </div>
+      <div class="state-strip" aria-label="Monitor status">
+        <span class="status-chip"><b>RUN</b><span id="runState">NO RUN</span></span>
+        <span class="status-chip"><b>FRAME</b><span id="frameState">EMPTY</span></span>
+        <span class="status-chip"><b>MODE</b><span>PASSIVE</span></span>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <article class="panel observation-panel">
+        <div class="panel-header">
+          <div><h2>Current Screen</h2><p>実行側が既に取得した最新フレーム</p></div>
+          <div class="button-row" role="group" aria-label="Preview size">
+            <button type="button" class="compact-button is-selected" data-preview="fit">Fit</button>
+            <button type="button" class="compact-button" data-preview="height">Height</button>
+            <button type="button" class="compact-button" data-preview="original">100%</button>
+          </div>
+        </div>
+        <div class="preview fit" id="preview">
+          <img id="currentFrame" alt="Praxiomの最新観測フレーム" hidden>
+          <div class="empty-state" id="frameEmpty"><strong>No passive frame</strong><span>Praxiomの実行側が次に観測すると表示されます。</span></div>
+        </div>
+        <dl class="meta-grid" id="frameMeta"></dl>
+      </article>
+
+      <article class="panel ai-panel">
+        <div class="panel-header"><div><h2>AI State</h2><p>Runtime / Policy / Learning</p></div></div>
+        <section class="metric-block"><h3>Runtime</h3><div id="runtimeState" class="metric-value">NO EVIDENCE</div><p id="runtimeDetail">既存Telemetryから最後の状態を表示します。</p></section>
+        <section class="metric-block"><h3>Policy</h3><div id="policyState" class="metric-value">NO DECISION</div><p id="policyDetail">Shadow recommendationは実行権限を持ちません。</p></section>
+        <section class="metric-block"><h3>Diagnostics</h3><div class="diagnostic-grid"><span>Errors <b id="errorCount">0</b></span><span>Learning <b id="learningCount">0</b></span></div></section>
+      </article>
+
+      <article class="panel human-panel">
+        <div class="panel-header"><div><h2>Human Channel</h2><p>Human Gate / Teaching projection</p></div></div>
+        <div class="notice neutral">
+          <span class="notice-dot" aria-hidden="true"></span>
+          <div><strong id="humanState">READY</strong><p id="humanDetail">Teachingは学習Evidenceとして保存されます。端末mutation権限は持ちません。</p></div>
+        </div>
+        <div class="teaching-form">
+          <label for="teachingKind">Kind</label>
+          <select id="teachingKind"><option value="policy">Policy</option><option value="fact">Fact</option><option value="other">Other</option></select>
+          <label for="teachingText">Teaching</label>
+          <textarea id="teachingText" rows="4" placeholder="Praxiomへ教える内容"></textarea>
+          <button type="button" class="compact-button" id="submitTeaching">Save Teaching</button>
+          <p class="timestamp" id="teachingResult">—</p>
+        </div>
+        <div class="contract-card"><h3>Human Channel Contract</h3><p><code>answered</code> は <code>learned</code> ではありません。conflict / verification / persistence完了後のみlearnedになります。このUIは <code>observe / execute / recover / invalidate</code> を呼びません。</p></div>
+        <div id="humanQuestions" class="timeline" aria-label="Human questions"></div>
+      </article>
+
+      <article class="panel activity-panel">
+        <div class="panel-header"><div><h2>Activity &amp; Diagnostics</h2><p>RunJournalのprivacy-safeイベント</p></div><span class="timestamp" id="generatedAt">—</span></div>
+        <div class="timeline" id="timeline" aria-label="Recent activity"></div>
+      </article>
+    </section>
+  </main>
+  <script src="/monitor.js" defer></script>
+</body>
+</html>

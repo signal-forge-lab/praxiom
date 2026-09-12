@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "phase": "phase-c",
+  "candidate_operation_class": "mergeboss:open-level-board",
+  "decision": "ACCEPTED",
+  "risk": "low",
+  "reversibility": "reversible",
+  "sequence_live": false,
+  "action_replay": 0,
+  "final_native_canary": {
+    "run_id": "phasec-mergeboss-open-board-native-canary-20260912a",
+    "status": "completed",
+    "action_count": 5,
+    "batch_size_one_only": true,
+    "failures": 0,
+    "account_attempt": {
+      "state": "succeeded",
+      "effect": "NONE",
+      "replayed": false
+    },
+    "merge_boss_entry_attempt": {
+      "state": "succeeded",
+      "effect": "NONE",
+      "replayed": false
+    },
+    "play_visual_binding": {
+      "screen_size_match": true,
+      "matched": true,
+      "similarity": 1.0,
+      "threshold": 0.9,
+      "template_source": "current-device-praxiom-20260912"
+    },
+    "play_attempt": {
+      "state": "succeeded",
+      "effect": "NONE",
+      "replayed": false
+    },
+    "board_postcondition": {
+      "at_1_5_seconds": {
+        "candidate_cells": 0,
+        "grid_cells": 63,
+        "revalidated": false
+      },
+      "at_4_0_seconds": {
+        "candidate_cells": 60,
+        "grid_cells": 63,
+        "candidate_ratio": 0.9524,
+        "reference_color_sample_hits": 191,
+        "reference_color_sample_total": 252,
+        "revalidated": true
+      }
+    },
+    "home_cleanup": {
+      "state": "succeeded",
+      "effect": "NONE",
+      "replayed": false,
+      "home_anchor": true,
+      "icon_count": 259
+    }
+  },
+  "current_device_visual_binding": {
+    "raw_screenshot_retained": false,
+    "compact_rgb4_template_retained": true,
+    "normalized_geometry_retained_at_domain_probe_edge": true,
+    "screen_size_scoped": [1206, 2622],
+    "shared_runtime_dependency": false,
+    "legacy_runtime_dependency": false,
+    "fail_closed_on_screen_size_mismatch": true,
+    "fail_closed_on_template_mismatch": true
+  },
+  "diagnostic_history": [
+    {
+      "run_id": "phasec-mergeboss-open-board-canary-20260912a",
+      "decision": "HOLD",
+      "reason": "shape-only visual candidate did not establish the board postcondition"
+    },
+    {
+      "run_id": "phasec-mergeboss-ocr-play-canary-20260912b",
+      "decision": "HOLD",
+      "reason": "legacy-assisted target localization was followed by only one early post-action observation"
+    },
+    {
+      "run_id": "phasec-mergeboss-ocr-transition-diag-20260912a",
+      "decision": "DIAGNOSTIC_ONLY",
+      "reason": "established that the same single Play action reaches board state after settle; used only to derive current-device visual evidence"
+    }
+  ],
+  "scope": {
+    "accepted": [
+      "system:return-home",
+      "system:launch-application",
+      "mergeboss:open-level-board"
+    ],
+    "not_authorized_by_this_acceptance": [
+      "mergeboss:spawn-generator-item",
+      "mergeboss:merge-board-items",
+      "mergeboss:deliver-customer-order",
+      "sequence-live"
+    ]
+  },
+  "privacy": {
+    "raw_screenshot_persisted_in_run_evidence": false,
+    "arbitrary_ocr_text_persisted": false,
+    "element_refs_persisted": false,
+    "bundle_id_persisted": false,
+    "device_identifier_persisted": false
+  }
+}

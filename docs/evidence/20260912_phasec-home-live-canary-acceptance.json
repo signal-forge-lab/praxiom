@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "phase": "phase-c",
+  "candidate_operation_class": "system:return-home",
+  "decision": "ACCEPTED",
+  "adaptive_surface": "observation-only",
+  "global_live_constant_enabled": false,
+  "sequence_live": false,
+  "runs": [
+    {
+      "run_id": "phasec-home-live-canary-20260912a",
+      "iterations": 1,
+      "success_none": 1,
+      "replayed": 0,
+      "live_applied": 1,
+      "cheap_validator_sufficient": 1,
+      "full_audit_matches": 1,
+      "fallbacks": 0,
+      "cheap_validator_latency_ms": [3653.483]
+    },
+    {
+      "run_id": "phasec-home-live-stability-20260912a",
+      "iterations": 5,
+      "success_none": 5,
+      "replayed": 0,
+      "live_applied": 5,
+      "cheap_validator_sufficient": 5,
+      "full_audit_matches": 5,
+      "fallbacks": 0,
+      "execute_median_ms": 224.4504000118468,
+      "execute_p90_ms": 230.011600011494,
+      "full_observe_median_ms": 4383.261700015282,
+      "full_observe_p90_ms": 5003.865999984555,
+      "cheap_validator_latency_ms": [
+        3679.172,
+        3588.439,
+        3676.761,
+        3676.979,
+        3701.339
+      ]
+    }
+  ],
+  "totals": {
+    "live_attempts": 6,
+    "success_none": 6,
+    "replayed": 0,
+    "live_applied": 6,
+    "cheap_validator_sufficient": 6,
+    "full_audit_matches": 6,
+    "fallbacks": 0,
+    "sequence_live_applications": 0,
+    "failure_classes": 0
+  },
+  "scope": {
+    "accepted": ["system:return-home"],
+    "held": ["mergeboss:launch", "gogomatch:launch-game"],
+    "hold_reason": "causal foreground/application-state validator not yet proven"
+  }
+}

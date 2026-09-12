@@ -1,0 +1,92 @@
+{
+  "domain": "mergeboss",
+  "fixture_type": "behavior_test_scenarios",
+  "provenance": "synthesized-contract-fixture-no-device-capture",
+  "scenarios": [
+    {
+      "scenario_id": "scen-launch",
+      "behavior_id": "mergeboss:launch",
+      "risk": "low",
+      "reversibility": "reversible",
+      "human_gate": false,
+      "op": "launch_app",
+      "inputs": {
+        "bundle-id": "com.alibaba.iAliexpress"
+      },
+      "pre_state": {
+        "app_installed": true,
+        "device_unlocked": true
+      },
+      "expected_outcome": "succeeded"
+    },
+    {
+      "scenario_id": "scen-open-board",
+      "behavior_id": "mergeboss:open-level-board",
+      "risk": "low",
+      "reversibility": "reversible",
+      "human_gate": false,
+      "op": "tap_point",
+      "inputs": {
+        "board-target": "main-level-board"
+      },
+      "pre_state": {
+        "app_active": true
+      },
+      "expected_outcome": "succeeded"
+    },
+    {
+      "scenario_id": "scen-spawn-item",
+      "behavior_id": "mergeboss:spawn-generator-item",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "op": "tap_point",
+      "inputs": {
+        "generator-slot": "slot-0-0",
+        "energy-budget": "1"
+      },
+      "pre_state": {
+        "energy": 85,
+        "free_slots": 12
+      },
+      "expected_outcome": "succeeded"
+    },
+    {
+      "scenario_id": "scen-merge-items",
+      "behavior_id": "mergeboss:merge-board-items",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "op": "drag",
+      "inputs": {
+        "source-slot": "slot-0-1",
+        "target-slot": "slot-0-2",
+        "item-type": "shoes",
+        "item-tier": "3"
+      },
+      "pre_state": {
+        "source_item": {"item_type": "shoes", "tier": 3},
+        "target_item": {"item_type": "shoes", "tier": 3}
+      },
+      "expected_outcome": "succeeded"
+    },
+    {
+      "scenario_id": "scen-deliver-order",
+      "behavior_id": "mergeboss:deliver-customer-order",
+      "risk": "medium",
+      "reversibility": "compensable",
+      "human_gate": false,
+      "op": "tap_point",
+      "inputs": {
+        "order-id": "order-101",
+        "item-type": "shopping_bag",
+        "item-tier": "4"
+      },
+      "pre_state": {
+        "order_active": true,
+        "matching_item_present": true
+      },
+      "expected_outcome": "succeeded"
+    }
+  ]
+}

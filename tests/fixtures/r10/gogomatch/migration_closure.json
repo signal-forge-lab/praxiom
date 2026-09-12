@@ -1,0 +1,83 @@
+{
+  "domain": "gogomatch",
+  "closure_version": "1.1.0",
+  "decisions": [
+    {
+      "legacy_behavior": "launch_app",
+      "behavior_id": "gogomatch:launch-game",
+      "decision": "migrated",
+      "reason": "Current Praxiom physical live evidence establishes revision-bound launch semantics.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "select_level",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "Retained GoGoMatch evidence does not establish level-selection semantics.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "start_level",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "Retained evidence begins after level entry and does not establish a start-level contract.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "swipe_match",
+      "behavior_id": "gogomatch:swap-tiles",
+      "decision": "migrated",
+      "reason": "Historical device evidence establishes adjacent match-producing swaps.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "use_booster",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "Historical evidence explicitly records that no booster was intentionally selected.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "claim_rewards",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "The retained level was not cleared, so reward-claim semantics were not observed.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "buy_extra_moves",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "A paid continuation offer was observed but no purchase or postcondition was executed.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    },
+    {
+      "legacy_behavior": "direct_device_service_bypass",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Direct device-service manipulation violates the Runtime boundary.",
+      "evidence_ref": "docs/evidence/r10-design-freeze.md#2-dependency-direction"
+    },
+    {
+      "legacy_behavior": "auto_retry_blindly",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Blind retry violates the no-replay safety invariant.",
+      "evidence_ref": "docs/evidence/r10-design-freeze.md#4-revision-semantics"
+    },
+    {
+      "legacy_behavior": "background_daemon_injection",
+      "behavior_id": null,
+      "decision": "excluded-legacy-only",
+      "reason": "Out-of-band daemon manipulation is outside the greenfield authority model.",
+      "evidence_ref": "docs/PROVENANCE.md"
+    },
+    {
+      "legacy_behavior": "multi_touch_cascade_gesture",
+      "behavior_id": null,
+      "decision": "deferred",
+      "reason": "No accepted multi-touch execution contract exists in R10.",
+      "evidence_ref": "docs/evidence/20260909_r10-domain-provenance-repair.md"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "validation_profiles": {
+    "gogomatch:launch-game": {
+      "evidence_ids": ["val-gg-launch-01", "val-gg-launch-02"],
+      "success_revisions": [
+        {"revision": "gg-rev-l1", "evidence_id": "suc-gg-l1"},
+        {"revision": "gg-rev-l2", "evidence_id": "suc-gg-l2"}
+      ],
+      "activation_confidence": 0.95
+    },
+    "gogomatch:swap-tiles": {
+      "evidence_ids": ["val-gg-swap-01", "val-gg-swap-02"],
+      "success_revisions": [
+        {"revision": "gg-rev-sw1", "evidence_id": "suc-gg-sw1"},
+        {"revision": "gg-rev-sw2", "evidence_id": "suc-gg-sw2"}
+      ],
+      "activation_confidence": 0.94
+    }
+  }
+}

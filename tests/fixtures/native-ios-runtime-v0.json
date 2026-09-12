@@ -1,0 +1,198 @@
+{
+  "contract": "native-ios-runtime-v0",
+  "version": 1,
+  "fixture_values_are_non_normative": true,
+  "scenarios": [
+    {
+      "id": "R2-A01",
+      "title": "ready status is privacy-safe and advertises limits",
+      "given": {"runtime_state": "READY", "max_batch_actions": 32},
+      "when": {"operation": "status"},
+      "expect": {
+        "lifecycle_state": "READY",
+        "current_revision": null,
+        "max_batch_actions": 32,
+        "must_not_expose": ["device_udid", "pair_record", "screen_text", "raw_action_payload"]
+      }
+    },
+    {
+      "id": "R2-A02",
+      "title": "observe creates revision-bound element references",
+      "given": {"runtime_state": "READY"},
+      "when": {"operation": "observe"},
+      "expect": {
+        "revision": "opaque-non-empty",
+        "screen": {"width": "positive", "height": "positive"},
+        "element_refs_are_revision_bound": true
+      }
+    },
+    {
+      "id": "R2-A03",
+      "title": "valid bounded batch executes in order",
+      "given": {"runtime_state": "READY", "current_revision": "rev-current", "max_batch_actions": 32},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-current",
+        "actions": [
+          {"type": "tap_point", "x": 100, "y": 200},
+          {"type": "type_text", "text": "abc"}
+        ]
+      },
+      "expect": {
+        "outcome": "success",
+        "device_call_count": 2,
+        "device_call_order": ["tap_point", "type_text"],
+        "completed_actions": 2,
+        "accepted_revision_invalidated": true
+      }
+    },
+    {
+      "id": "R2-A04",
+      "title": "stale revision is rejected before side effects",
+      "given": {"runtime_state": "READY", "current_revision": "rev-new"},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-old",
+        "actions": [{"type": "tap_point", "x": 100, "y": 200}]
+      },
+      "expect": {
+        "outcome": "error",
+        "code": "STALE_REVISION",
+        "phase": "preflight",
+        "effect": "NONE",
+        "device_call_count": 0
+      }
+    },
+    {
+      "id": "R2-A05",
+      "title": "invalid later action rejects the entire batch before side effects",
+      "given": {"runtime_state": "READY", "current_revision": "rev-current"},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-current",
+        "actions": [
+          {"type": "tap_point", "x": 100, "y": 200},
+          {"type": "type_text"}
+        ]
+      },
+      "expect": {
+        "outcome": "error",
+        "code": "INVALID_REQUEST",
+        "phase": "preflight",
+        "effect": "NONE",
+        "device_call_count": 0
+      }
+    },
+    {
+      "id": "R2-A06",
+      "title": "ambiguous mid-batch failure is never blindly retryable",
+      "given": {"runtime_state": "READY", "current_revision": "rev-current"},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-current",
+        "actions": [
+          {"type": "tap_point", "x": 100, "y": 200},
+          {"type": "tap_point", "x": 300, "y": 400}
+        ],
+        "fault": {"at_action_index": 1, "kind": "transport_timeout_after_send"}
+      },
+      "expect": {
+        "outcome": "error",
+        "code": "EFFECT_UNKNOWN",
+        "phase": "execution",
+        "effect": "UNKNOWN",
+        "completed_actions": 1,
+        "failed_action_index": 1,
+        "retry_safe": false,
+        "accepted_revision_invalidated": true,
+        "automatic_replay_count": 0
+      }
+    },
+    {
+      "id": "R2-A07",
+      "title": "recover replaces stale device plumbing without replaying actions",
+      "given": {"runtime_state": "DEGRADED", "current_revision": "rev-before", "wda_state": "UNAVAILABLE"},
+      "when": {"operation": "recover", "fault": "stale_wda_or_rsd_session"},
+      "expect": {
+        "outcome": "recovered",
+        "revision_before_is_invalid": true,
+        "action_replay_count": 0,
+        "future_observe_required": true
+      }
+    },
+    {
+      "id": "R2-A08",
+      "title": "close is idempotent and releases only owned resources",
+      "given": {"runtime_state": "READY", "owned_resources": ["rsd_handle", "wda_session"]},
+      "when": {"operation": "close", "call_count": 2},
+      "expect": {
+        "outcome": "success",
+        "lifecycle_state": "CLOSED",
+        "owned_resources_closed": true,
+        "unowned_processes_killed": 0,
+        "status_still_callable": true
+      }
+    },
+    {
+      "id": "R2-A09",
+      "title": "element reference from another revision is rejected",
+      "given": {"runtime_state": "READY", "current_revision": "rev-b", "element_ref_revision": "rev-a"},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-b",
+        "actions": [{"type": "tap_element", "ref": "element-from-rev-a"}]
+      },
+      "expect": {
+        "outcome": "error",
+        "code": "STALE_REVISION",
+        "phase": "preflight",
+        "effect": "NONE",
+        "device_call_count": 0
+      }
+    },
+    {
+      "id": "R2-A10",
+      "title": "over-limit batch is rejected before side effects",
+      "given": {"runtime_state": "READY", "current_revision": "rev-current", "max_batch_actions": 2},
+      "when": {
+        "operation": "execute",
+        "expected_revision": "rev-current",
+        "actions": [
+          {"type": "home"},
+          {"type": "home"},
+          {"type": "home"}
+        ]
+      },
+      "expect": {
+        "outcome": "error",
+        "code": "INVALID_REQUEST",
+        "phase": "preflight",
+        "effect": "NONE",
+        "device_call_count": 0
+      }
+    },
+    {
+      "id": "R2-A11",
+      "title": "real-device upstream-only smoke path",
+      "given": {"physical_iphone_attached": true, "phone_harness_available_to_new_runtime": false},
+      "when": {
+        "operations": [
+          "status",
+          "observe_screenshot_and_accessibility",
+          "execute_tap",
+          "observe",
+          "execute_drag",
+          "observe",
+          "close"
+        ]
+      },
+      "expect": {
+        "all_operations_complete": true,
+        "phone_harness_dependency_count": 0,
+        "pymobiledevice3_fork_delta_required": false,
+        "blind_action_replay_count": 0,
+        "trace_has_operation_latency": true
+      }
+    }
+  ]
+}

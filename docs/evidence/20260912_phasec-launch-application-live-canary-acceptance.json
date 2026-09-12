@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "phase": "phase-c",
+  "candidate_operation_class": "system:launch-application",
+  "decision": "ACCEPTED",
+  "adaptive_surface": "observation-only",
+  "global_live_constant_enabled": false,
+  "sequence_live": false,
+  "validator_run": {
+    "run_id": "phasec-foreground-validator-stability-20260912b",
+    "samples": 5,
+    "success_none": 5,
+    "replayed": 0,
+    "foreground_match": 5,
+    "full_observe_corroboration": 5,
+    "home_cleanup_success": 5,
+    "fallbacks": 0,
+    "shadow_evaluations": 5,
+    "cheap_validator_median_ms": 1184.316,
+    "cheap_validator_p90_ms": 1210.427,
+    "full_observe_median_ms": 4811.217299982673,
+    "full_observe_p90_ms": 24930.859199987026
+  },
+  "live_canary_run": {
+    "run_id": "phasec-launch-application-live-canary-20260912a",
+    "success_none": 1,
+    "replayed": 0,
+    "live_applied": true,
+    "cheap_validator_sufficient": true,
+    "cheap_validator_latency_ms": 1143.057,
+    "full_observe_corroboration": true,
+    "home_cleanup_success": true,
+    "fallbacks": 0,
+    "failure_classes": 0
+  },
+  "promotion": {
+    "current_device_success_none": 5,
+    "shadow_evaluations": 5,
+    "causal_validator_proven": true,
+    "fallback_proven": true,
+    "replay_count": 0,
+    "risk": "low",
+    "reversibility": "reversible",
+    "human_gate": false,
+    "ready": true,
+    "reasons": []
+  },
+  "excluded_runs": [
+    {
+      "run_id": "phasec-foreground-validator-stability-20260912a",
+      "reason": "terminal probe exception plus possible manual device interaction; retained as diagnostic evidence only",
+      "device_actions_clean": 10
+    }
+  ],
+  "scope": {
+    "accepted": [
+      "system:return-home",
+      "system:launch-application"
+    ],
+    "held": [
+      "mergeboss:open-level-board",
+      "mergeboss:launch",
+      "gogomatch:launch-game"
+    ],
+    "hold_reason": "domain-specific target and postcondition evidence not yet proven"
+  },
+  "privacy": {
+    "app_identity_persisted": false,
+    "bundle_id_persisted": false,
+    "raw_response_persisted": false
+  }
+}

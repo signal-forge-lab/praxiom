@@ -1,0 +1,29 @@
+{
+  "domain": "gogomatch",
+  "behaviors": [
+    {
+      "behavior_id": "gogomatch:launch-game",
+      "summary": "launch GoGoMatch application to level map or home surface",
+      "source_evidence": ["docs/evidence/20260909_r10-domain-provenance-repair.md"],
+      "inputs": ["bundle-id"],
+      "preconditions": ["revision-bound: runtime status verified"],
+      "postconditions": ["game application launched and active in observation"],
+      "risk": "low",
+      "reversibility": "reversible",
+      "ops": ["launch_app"],
+      "human_gate": false
+    },
+    {
+      "behavior_id": "gogomatch:swap-tiles",
+      "summary": "drag tile from origin to adjacent cell to execute match-3 swap",
+      "source_evidence": ["docs/evidence/20260909_r10-domain-provenance-repair.md"],
+      "inputs": ["source-cell-point", "target-cell-point"],
+      "preconditions": ["revision-bound: interactive match grid confirmed"],
+      "postconditions": ["tiles swapped, match resolved, gravity applied"],
+      "risk": "medium",
+      "reversibility": "compensable",
+      "ops": ["drag", "tap_point"],
+      "human_gate": false
+    }
+  ]
+}

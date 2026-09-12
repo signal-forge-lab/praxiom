@@ -1,0 +1,409 @@
+{
+  "device_call_breakdown": {
+    "accessibility_source": 26,
+    "close": 1,
+    "close_session": 3,
+    "connect": 39,
+    "drag": 3,
+    "launch_app": 3,
+    "press_home": 4,
+    "recreate": 2,
+    "screen_size": 26,
+    "screenshot": 26,
+    "send_keys": 1,
+    "tap_at_point": 3
+  },
+  "element_counts_observe": [
+    173,
+    173,
+    173
+  ],
+  "element_counts_settings": 183,
+  "frame_px": [
+    1206,
+    2622,
+    "png"
+  ],
+  "observe_retries": 0,
+  "per_action_stats": {
+    "drag": {
+      "count": 1,
+      "median_ms": 1855.1821999717504,
+      "min_ms": 1855.1821999717504,
+      "p95_or_max_ms": 1855.1821999717504,
+      "percentile_meaningful": false
+    },
+    "home": {
+      "count": 4,
+      "median_ms": 500.13250001939014,
+      "min_ms": 489.1598999965936,
+      "p95_or_max_ms": 501.1773998849094,
+      "percentile_meaningful": false
+    },
+    "launch_app": {
+      "count": 3,
+      "median_ms": 167.52819996327162,
+      "min_ms": 132.33870000112802,
+      "p95_or_max_ms": 193.9605000661686,
+      "percentile_meaningful": false
+    },
+    "swipe": {
+      "count": 2,
+      "median_ms": 2217.413950012997,
+      "min_ms": 2031.9378999993205,
+      "p95_or_max_ms": 2402.890000026673,
+      "percentile_meaningful": false
+    },
+    "tap_element": {
+      "count": 2,
+      "median_ms": 1249.6248499955982,
+      "min_ms": 1183.9985999977216,
+      "p95_or_max_ms": 1315.2510999934748,
+      "percentile_meaningful": false
+    },
+    "tap_point": {
+      "count": 1,
+      "median_ms": 1393.6391999013722,
+      "min_ms": 1393.6391999013722,
+      "p95_or_max_ms": 1393.6391999013722,
+      "percentile_meaningful": false
+    },
+    "type_text": {
+      "count": 1,
+      "median_ms": 311.55059998854995,
+      "min_ms": 311.55059998854995,
+      "p95_or_max_ms": 311.55059998854995,
+      "percentile_meaningful": false
+    }
+  },
+  "screen_px": [
+    1206,
+    2622
+  ],
+  "sources": [
+    "accessibility",
+    "screenshot"
+  ],
+  "steps": [
+    {
+      "cell": "R4-01",
+      "detail": "installed-runner-found",
+      "name": "runner-discovery",
+      "ok": true
+    },
+    {
+      "cell": "R4-01",
+      "detail": "lifecycle=DISCONNECTED transport=NONE wda=NONE revision-absent=True",
+      "name": "pre-connect-status",
+      "ok": true
+    },
+    {
+      "cell": "R4-01",
+      "detail": "lifecycle=READY transport=RSD_USERSPACE wda=READY",
+      "name": "connect-ready",
+      "ok": true
+    },
+    {
+      "cell": "R4-01",
+      "detail": "dropped-to=DEGRADED/UNAVAILABLE resumed-ready=True",
+      "name": "owned-session-resume",
+      "ok": true
+    },
+    {
+      "cell": "R4-01",
+      "detail": "repaired=True",
+      "name": "recover-recreate",
+      "ok": true
+    },
+    {
+      "cell": "R4-01",
+      "detail": "environment-not-exercised physical-unplug-not-induced",
+      "name": "hotplug",
+      "ok": true
+    },
+    {
+      "cell": "R4-02",
+      "detail": "unique-revisions=3/3 sizes-consistent=True element-counts=173..173",
+      "name": "repeat-rounds",
+      "ok": true
+    },
+    {
+      "cell": "R4-02",
+      "detail": "fresh-revision=True elements=173",
+      "name": "invalidate-turnover",
+      "ok": true
+    },
+    {
+      "cell": "R4-02",
+      "detail": "code=STALE_REVISION zero-device-calls=True",
+      "name": "stale-revision-zero-calls",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "outcomes=1 invalidated=True",
+      "name": "home",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "outcomes=1",
+      "name": "launch-settings",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "target-role=XCUIElementTypeButton outcomes=1 reversible-via-home",
+      "name": "tap-element",
+      "ok": true
+    },
+    {
+      "cell": "R4-02",
+      "detail": "elements=77 sizes-consistent=True",
+      "name": "capture-after-navigation",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "focus-role=XCUIElementTypeSearchField outcomes=1 single-space-residue-noted",
+      "name": "type-text",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "in-bounds-point outcomes=1",
+      "name": "tap-point",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "up-then-down outcomes=1+1 scroll-restored",
+      "name": "swipe",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "outcomes=1",
+      "name": "drag",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "completed=2 outcomes=2 invalidated=True",
+      "name": "ordered-batch",
+      "ok": true
+    },
+    {
+      "cell": "R4-03",
+      "detail": "zero-call-proofs=4/4 stale-foreign-over-limit-invalid-later",
+      "name": "preflight-zero-call-proofs",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "dropped-to=DEGRADED/UNAVAILABLE resumed-ready=True",
+      "name": "owned-session-drop-resume",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "stale-before-recover=DEGRADED/UNAVAILABLE repaired=True replayed-executes=0 reconciled-ready=True",
+      "name": "recover-zero-replay",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "environment-not-exercised no-ambiguous-failure-observed never-manufactured deterministic-A06-covers-semantics",
+      "name": "ambiguous-effect",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "environment-not-exercised no-safe-disconnect-inducible unplug-never-performed",
+      "name": "disconnect-path",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "second-close-clean",
+      "name": "close-idempotent",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "lifecycle=CLOSED",
+      "name": "closed-state",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "code=RUNTIME_CLOSED",
+      "name": "post-close-observe-rejected",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "code=RUNTIME_CLOSED",
+      "name": "post-close-execute-rejected",
+      "ok": true
+    },
+    {
+      "cell": "R4-04",
+      "detail": "code=RUNTIME_CLOSED",
+      "name": "post-close-recover-rejected",
+      "ok": true
+    },
+    {
+      "cell": "R4-05",
+      "detail": "ops=['execute', 'invalidate', 'observe', 'recover'] bounded-history=True observe-retries=0",
+      "name": "latency-baseline",
+      "ok": true
+    }
+  ],
+  "summary": {
+    "aborted": false,
+    "failed_steps": [],
+    "steps_passed": 29,
+    "steps_total": 29
+  },
+  "timings": {
+    "exec_back_home": [
+      489.2273999284953
+    ],
+    "exec_drag": [
+      1855.2960000233725
+    ],
+    "exec_focus_search": [
+      1315.343499998562
+    ],
+    "exec_home": [
+      500.2311000134796
+    ],
+    "exec_launch": [
+      194.0611000172794
+    ],
+    "exec_leave_settings": [
+      500.33569999504834
+    ],
+    "exec_ordered_batch": [
+      668.8051000237465
+    ],
+    "exec_relaunch": [
+      132.4148999992758
+    ],
+    "exec_swipe_down": [
+      2402.992899995297
+    ],
+    "exec_swipe_up": [
+      2032.022999948822
+    ],
+    "exec_tap_element": [
+      1184.084300068207
+    ],
+    "exec_tap_point": [
+      1393.7286000000313
+    ],
+    "exec_type_text": [
+      311.6444000042975
+    ],
+    "observe_after_nav": [
+      681.701899971813
+    ],
+    "observe_after_owned_drop": [
+      1345.8470000186935
+    ],
+    "observe_after_recover": [
+      1219.2139000399038,
+      1254.7662000870332
+    ],
+    "observe_startup": [
+      1552.3144999751821
+    ],
+    "observe_steady": [
+      1322.392400004901,
+      1308.9746000478044,
+      1306.6172000253573,
+      1341.9936000136659,
+      1345.5791000742465,
+      1283.6557000409812,
+      1322.2057999810204,
+      1375.727100064978,
+      1262.8943000454456,
+      1271.9457000494003,
+      1458.7765999604017,
+      3185.072899912484,
+      3216.1608000751585,
+      2905.4277000250295,
+      3295.66820000764,
+      3311.2278999760747,
+      3073.48269992508,
+      3061.2667000386864,
+      1419.685099972412,
+      1304.7878999495879,
+      1310.695799998939
+    ],
+    "recover_owned": [
+      301.8307000165805
+    ],
+    "recover_recreate": [
+      301.1293000308797
+    ]
+  },
+  "trace_counters": {
+    "errors": {
+      "INVALID_REQUEST": 2,
+      "STALE_REVISION": 3
+    },
+    "operations": {
+      "execute": 18,
+      "invalidate": 2,
+      "observe": 26,
+      "recover": 2
+    }
+  },
+  "trace_stats": {
+    "execute": {
+      "count": 18,
+      "median_ms": 494.7125500184484,
+      "min_ms": 0.00879995059221983,
+      "p95_or_max_ms": 2402.9791000066325,
+      "percentile_meaningful": false
+    },
+    "invalidate": {
+      "count": 2,
+      "median_ms": 0.005599984433501959,
+      "min_ms": 0.005399924702942371,
+      "p95_or_max_ms": 0.005800044164061546,
+      "percentile_meaningful": false
+    },
+    "observe": {
+      "count": 26,
+      "median_ms": 1343.7728500575759,
+      "min_ms": 681.664300034754,
+      "p95_or_max_ms": 3295.6545000197366,
+      "percentile_meaningful": true
+    },
+    "observe_startup": {
+      "count": 1,
+      "median_ms": 1552.3144999751821,
+      "min_ms": 1552.3144999751821,
+      "p95_or_max_ms": 1552.3144999751821,
+      "percentile_meaningful": false
+    },
+    "observe_steady": {
+      "count": 21,
+      "median_ms": 1345.5791000742465,
+      "min_ms": 1262.8943000454456,
+      "p95_or_max_ms": 3295.66820000764,
+      "percentile_meaningful": true
+    },
+    "recover": {
+      "count": 2,
+      "median_ms": 301.4596999855712,
+      "min_ms": 301.1083999881521,
+      "p95_or_max_ms": 301.8109999829903,
+      "percentile_meaningful": false
+    }
+  },
+  "transport_kind": "RSD_USERSPACE"
+}

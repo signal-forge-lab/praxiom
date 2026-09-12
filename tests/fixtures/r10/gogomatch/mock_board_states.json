@@ -1,0 +1,31 @@
+{
+  "synthesized_states": [
+    {
+      "state_id": "state-board-initial",
+      "grid_size": [8, 8],
+      "moves_left": 25,
+      "score": 0,
+      "target_score": 5000,
+      "board_active": true,
+      "valid_swap": {
+        "from": [2, 3],
+        "to": [2, 4],
+        "resulting_match_count": 3
+      }
+    },
+    {
+      "state_id": "state-board-settled",
+      "grid_size": [8, 8],
+      "moves_left": 24,
+      "score": 300,
+      "target_score": 5000,
+      "board_active": true
+    },
+    {
+      "state_id": "state-booster-ready",
+      "hammer_count": 2,
+      "bomb_count": 1,
+      "target_obstacle": [4, 4]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "domain": "mergeboss",
+  "fixture_type": "synthesized_board_state",
+  "provenance": "synthesized-contract-fixture-no-device-capture",
+  "grid": {
+    "rows": 9,
+    "cols": 7,
+    "total_slots": 63
+  },
+  "player_state": {
+    "energy": 85,
+    "max_energy": 100,
+    "coins": 1250,
+    "gems": 45
+  },
+  "active_orders": [
+    {
+      "order_id": "order-101",
+      "customer_id": "cust-a",
+      "required_item": {
+        "item_type": "shopping_bag",
+        "tier": 4
+      },
+      "reward_coins": 180,
+      "reward_bills": 0
+    },
+    {
+      "order_id": "order-102",
+      "customer_id": "cust-b",
+      "required_item": {
+        "item_type": "shoes",
+        "tier": 5
+      },
+      "reward_coins": 350,
+      "reward_bills": 5
+    }
+  ],
+  "sample_slots": [
+    {
+      "row": 0,
+      "col": 0,
+      "occupied": true,
+      "is_generator": true,
+      "generator_type": "clothing_box",
+      "item_type": null,
+      "tier": null,
+      "cooldown_remaining_sec": 0
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "occupied": true,
+      "is_generator": false,
+      "generator_type": null,
+      "item_type": "shoes",
+      "tier": 3,
+      "cooldown_remaining_sec": 0
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "occupied": true,
+      "is_generator": false,
+      "generator_type": null,
+      "item_type": "shoes",
+      "tier": 3,
+      "cooldown_remaining_sec": 0
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "occupied": false,
+      "is_generator": false,
+      "generator_type": null,
+      "item_type": null,
+      "tier": null,
+      "cooldown_remaining_sec": 0
+    }
+  ]
+}

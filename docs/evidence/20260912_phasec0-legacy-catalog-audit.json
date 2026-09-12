@@ -1,0 +1,15 @@
+{
+  "catalog_version": 2,
+  "complete_item_families": 7,
+  "control_character_values": 0,
+  "item_families": 7,
+  "item_levels": 70,
+  "merge_transitions": 4,
+  "possible_outputs": 16,
+  "producers": 4,
+  "producers_with_complete_outputs": 3,
+  "replacement_character_values": 0,
+  "schema_version": 1,
+  "source_sha256": "42be3db6eb6a41e3fd6f4647d1c26078d146b569c01c033567beb2b0c8506590",
+  "visual_descriptors": 15
+}

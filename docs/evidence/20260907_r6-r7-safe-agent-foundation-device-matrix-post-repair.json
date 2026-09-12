@@ -1,0 +1,67 @@
+{
+  "device_count": 1,
+  "failed_steps": [],
+  "gate": "bounded single-lane Safe Agent Foundation matrix",
+  "result": "PASS",
+  "runner_present": true,
+  "safety_context": "reversible Home/Settings only",
+  "source_head_parts": [
+    "c22bf0f8e964c5ed481f",
+    "ff990a4336e5cb475730"
+  ],
+  "source_tree_clean": true,
+  "steps": [
+    {
+      "detail": "",
+      "name": "lease-held-at-dispatch",
+      "ok": true
+    },
+    {
+      "detail": "current revision accepted by coordinator/runtime",
+      "name": "current-observation-feeds-mutation",
+      "ok": true
+    },
+    {
+      "detail": "one runtime execute for one planned mutation",
+      "name": "runtime-only-mutation-path",
+      "ok": true
+    },
+    {
+      "detail": "",
+      "name": "revision-invalidated-after-mutation",
+      "ok": true
+    },
+    {
+      "detail": "",
+      "name": "fresh-observe-before-next-state-sensitive-mutation",
+      "ok": true
+    },
+    {
+      "detail": "durable attempt link retained with structured evidence only",
+      "name": "attempt-evidence-linked-without-sensitive-payload",
+      "ok": true
+    },
+    {
+      "detail": "home-structural-icons=259",
+      "name": "bounded-recovery-to-safe-anchor",
+      "ok": true
+    },
+    {
+      "detail": "",
+      "name": "cancel-and-deadline-prevent-unsent-mutation",
+      "ok": true
+    },
+    {
+      "detail": "runtime-executes=2",
+      "name": "zero-blind-replay",
+      "ok": true
+    },
+    {
+      "detail": "",
+      "name": "shutdown-releases-owned-lane",
+      "ok": true
+    }
+  ],
+  "steps_passed": 10,
+  "steps_total": 10
+}

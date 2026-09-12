@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "praxiom"
+version = "0.1.0"
+description = "Praxiom: adaptive execution and learning agent - Native iOS Runtime v0"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "GPL-3.0-or-later"
+dependencies = [
+    "pymobiledevice3 @ git+https://github.com/doronz88/pymobiledevice3@ec4ac06a850a6a884ca778350621f354faf347c6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"praxiom.monitor" = ["static/*.html", "static/*.css", "static/*.js", "static/*.png"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# xonsh (transitive dep of pymobiledevice3) ships a pytest11 plugin that builds
+# an interactive prompt_toolkit shell and crashes under non-console runs; we do
+# not use it.
+addopts = "-p no:xonsh"
